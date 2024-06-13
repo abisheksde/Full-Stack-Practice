@@ -592,8 +592,8 @@
      
     /*
     //Another Way
-    
-     priceUSD.map(convert);
+
+     let priceINR = priceUSD.map(convert);
 
      function convert(val){
         return val*83;
@@ -608,7 +608,122 @@
      priceEU.forEach(x => x*50);
 
      console.log(priceEU);
+
+     ////Filter\\\\
+     //Filter the Data based on certain conditions
+
+     let cost = [50,100,500,120,30,75,90,350];
+
+     let costLessthan100 = cost.filter(x => x<100); //It will return the Element of an Array, which is Lessthan 100 & store it a New Array
+     //Not only value, You can receive index of the Array & Full Array as parameter
+
+     console.log(costLessthan100);
+
+     ////Reduce\\\\
+     // Returns Accumulated Result
+
+     let cartTotal = cost.reduce((total, el) =>  total+el);
+     let cartTotal1 = cost.reduce((total, el) =>  total+el, 1000);  // Means, initial value of "total" = 1000; // total = total + el;
+     // 1. Arguments --> (total, el)
+     // 2. Function Definition (Callback Function) --> total+el
+     // 3. Initial value of Accumulator (here, total) --> 1000
+     // The Result or Returned value of Callback Function will added to 1000
+     /*
+     1st Iteration
+     total = 1000;
+     el = 50;
+     total = total + el; // 1050 = 1000 + 50;
+     total = 1050;
+
+     2nd Iteration
+     total = 1050;
+     el = 100;
+     total = total + el; // 1150 = 1050 + 100;
+     total = 1150;
+     ...........................................
+     ...........................................
+     **/
+
+     console.log(cartTotal);
+
+     //Another Way
+     let carTotal = cost.reduce(accumulate);
+
+     function accumulate(total, el){ //Not only Element, You can receive index of the Array & Full Array as parameter
+        //total = undefined;
+        // el = Array Element;
+        console.log("Total is : ", + total);
+        console.log(el);
+
+        return total+el,1000; // in background --> total = total+el;
+        //return total+el,1000; // in background --> total = total+el; -> Means, initial value of "total" = 1000
+        //return total-el; //  in background --> total = total-el;
+     }
+     console.log(carTotal);
+
+     //Another Example - Reduce()
+
+     let arr2d = [
+        ["a","b","c"],
+        ["d","e","f"],
+        ["d","g","f"],
+     ]
+
+     let flatArray= arr2d.flat(); // It will change the 2D Array to 1D Array
+
+     let count = flatArray.reduce((accumulator,currentValue)=> {
+        console.log("The Accumulator is : "+accumulator);
+        //Initially, The Accumulator is Empty Object
+        if(accumulator[currentValue]){ //We take Object Value using Square bracket Notation
+            //If accumulator Object already has currentValue (Key of the Object) (Eg. "a") means, the value of Object will increase by 1           
+            accumulator[currentValue]++; //Iterations - 7th,9th
+        } else{
+            //If accumulator Object does not have currentValue (Key of the Object) (Eg. "a") before means, this is First time to read particular currentValue (Key of the Object) from Flat Array
+            //So, value of Object will become 1
+            accumulator[currentValue] = 1; //Iterations - 1st,2nd,3rd,4th,5th,6th,8th
+            ///DOUBT : In this code, Value will add to accumulator. But, how Key will add to accumulator??????
+            //Refer Object concepts - How to add Object Element using square bracket Notation
+
+            //To add Object Element using square bracket Notation --> syntax = objectName['key'] = value;
+            //here, "accumulator" is ObjectName, "currentValue" is key & "1" is value
+            //accumulator[currentValue] = 1;
+            //accumulator['a'] = 1;
+            //LHS will add Key part of the Object & RHS will add value part of the Object
+            /*
+            Example:
+            let student = {};
+
+            student['name'] = "Abishek";
+            student['age'] = 23;
+
+            Now, student = {name:"Abishek", age:23};
+            */
+        }
+
+        return accumulator;
+
+     },{}) //Initial value of accumulator = {}; --> result of the function will add to this Emply Object on every single iterator
+
+     /*
+        1st Iteration
+        accumulator = {};
+        currentValue = "a";
+        check if(accumulator[currentValue]) condition --> || accumulator[currentValue] = undefined || --> return false
+        So, execute else part --> accumulator[currentValue] = 1
+        add a:1 in accumulator
+        Now, accumulator = {a:1}
+
+        2nd Iteration
+        accumulator = {a:1};
+        currentValue = "b";
+        check if(accumulator[currentValue]) condition --> return false
+        So, execute else part --> accumulator[currentValue] = 1
+        add b:1 in accumulator
+        Now, accumulator = {a:1, b:1}
+        
+     */
      
+     console.log(count);
 
     </script>
     <a href="/JavaScript/lenghtconvertor.html" target="_blank" rel="noopener noreferrer">Go to Lenght Convertor</a> <br>
