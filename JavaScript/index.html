@@ -539,7 +539,7 @@
 
     gen.next().value; // To get index value
 
-    //Callback - When you call a Function, at that time, that Function passed another Function an Argument
+    ///////Callback - When you call a Function, at that time, that Function passed another Function an Argument
 
     function greetings(name){
         console.log("Hello "+ name);
@@ -578,6 +578,37 @@
         console.log(arr[index]); // arr[index] = val;
         console.log(val); // val = arr[index];
      }
+
+     ////// Map
+
+     let priceUSD = [10,20,25];
+
+     let priceINR = priceUSD.map( x => x*83); // It is a callback Function
+     //Map() is similer to forEach(), But Map() automatically will store the New Data returned by Callback Function as an Array
+     //Here, PriceUSD is a Array. After Executing Map(), priceINR is a seperate Array. 
+     //But in forEach() We need to write a code seperately inside the callback Function, to store new Data as new Array
+     console.log(priceUSD); // [10,20,25]
+     console.log(priceINR); // [830,1660,2075]
+     
+    /*
+    //Another Way
+    
+     priceUSD.map(convert);
+
+     function convert(val){
+        return val*83;
+     }
+    */
+
+
+
+     // But, forEach()
+     let priceEU = [10,15,20,23];
+
+     priceEU.forEach(x => x*50);
+
+     console.log(priceEU);
+     
 
     </script>
     <a href="/JavaScript/lenghtconvertor.html" target="_blank" rel="noopener noreferrer">Go to Lenght Convertor</a> <br>

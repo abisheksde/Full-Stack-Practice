@@ -16,6 +16,16 @@ window.onload=function(){
   console.log(button);
 
   let cities = ["Bangalore", "Chennai", "Hyderabad", "Kolkata"];
+/*
+  cities.forEach( (val, index) => {
+    let dropdownList = document.createElement('option');
+    dropdownList.id = index;
+    dropdownList.value = val;
+    dropdownList.textContent = val;
+    document.getElementById("city").appendChild(dropdownList);
+  })
+
+  */
 
   cities.forEach(addDropdown);
 
