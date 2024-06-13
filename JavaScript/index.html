@@ -466,11 +466,116 @@
         //mobile[mobiledetails] = 1st : "Samsung", 2nd : "Galaxy 125", 3rd : 12000
     }
 
+    ///FUNCTIONS///
+
+    // We can declare a Function Like this, It means, We can assign a Function to a Variable
+    // This is not applicable for hoisting - Means, We cannot call the function before declaring it
+    // But hoisting is applicable for normal function declaration like - function isEven(){}
+    let isEven = function(num){
+
+        console.log(num);
+        return num%2==0;
+    }
+
+    console.log(isEven(5)); // Calling the Function
+
+    console.log(isEven); // Printing the Variable => The isEven variable holds Function Declaration
+
+    ///Arrow Function
+
+    let isOdd = (num) => {return num%2!=0};
+    //here, we don't need to give function keyword, instead of function keyword, You need to give Arrow (=>) after the Parameter
+
+    let isthisOdd = num =>  num%2!=0;
+    //If you receive only one value as argument, then you don't need to give () paranthesis - Incase of Empty arguments, you need to give empty () paranthesis
+    //If function defenition is only one line, and that line return something means, you don't need to give curly braces & return keyword. 
+
+    console.log(isOdd(4));
+
+    //// Rest Parameters
+
+    
+    function sum(...args){
+        //If we don't know, How many Argument are recieved in this Function
+        //Even How many Function received, Our function should received & perform Operations
+        //Every value of parameters are stored as an element of Array
+        let num5 =0;
+        for(let val of args){
+            num5 = num5 + val;
+        }
+        return num5;
+    }
+
+    console.log(sum(1,2,3,4,6));
+
+    function sum1(){
+        //If you pass parameters, where you call this function, 
+        //Even you didn't give any arguments to recieve, in this function, 
+        //The Arguments are still accessible inside this Function in variable called "arguments",
+        //Bcz, every arguments are stored as internal variable in the "arguments" variable as an Array
+        let num5 = 0;
+        for(let val of arguments){
+            num5 = num5 + val;
+        }
+        return num5;
+    }
+
+    console.log(sum1(1,2,3,4,6));
+
+    ////GENERATORS////
+    //It will generate the values one by one
+    //When you write a function to generate a Number one by one, at that time you can use Generator (Eg. Id generation in Database)
+    //Function & Generator, both are same. You can write functionalities in Generator also
+    // Generator is only for Identification
+    function* indexGenerator(){
+        let index = 1;
+
+        while(true){
+            yield index++; //Instead of return, we use yield in generator
+        }
+    }
+
+    const gen = indexGenerator(); // It will return generator Object
+
+    gen.next().value; // To get index value
+
+    //Callback - When you call a Function, at that time, that Function passed another Function an Argument
+
+    function greetings(name){
+        console.log("Hello "+ name);
+    }
+
+    function greetingMorning(name){
+        console.log("Good Morning "+ name);
+    }
+
+    function greet(Callback){ //This greet function will receive, any Function as an Argument
+        // Don't need to recieve Argument of callback Function here - like callback(name) X
+        console.log(Callback); // Defenition of a Function, which is received in argument
+        Callback("Abishek");
+    }
+
+    greet(greetings); // We call the greet() function & passed greetings() function as an Argument to greet() function
+
+    greet(greetingMorning); // We call the greet() function & passed greetingMorning() function as an Argument to greet() function
+     //You can give function defenition as a Argument, instead of giving Function name as an Argument
+
+
+     //For Each Loop - To Understand Callback
+
+     nameArray = ["Thankaswamy","Leelabai", "Abishek", "Abinesh", "Abinisha"];
+
+     nameArray.forEach(print); // It will take All of the Array Element one by one & Execute the Respective callback Function
+     // here, ForEach() is a Method/Function & You need to give any Function as Argument
+
+     function print(val){
+        console.log(val);
+     }
 
     </script>
     <a href="/JavaScript/lenghtconvertor.html" target="_blank" rel="noopener noreferrer">Go to Lenght Convertor</a> <br>
     <a href="/JavaScript/tempconvertor.html" target="_blank" rel="noopener noreferrer">Go To Temperature Convertor</a> <br>
-    <a href="/JavaScript/randomLetter.html" target="_blank" rel="noopener noreferrer">Go to Random Letter Generator</a>
-    <a href="/JavaScript/citydetails.html" target="_blank" rel="noopener noreferrer">Go to City Stats</a>
+    <a href="/JavaScript/randomLetter.html" target="_blank" rel="noopener noreferrer">Go to Random Letter Generator</a> <br>
+    <a href="/JavaScript/citydetails.html" target="_blank" rel="noopener noreferrer">Go to City Stats</a> <br>
 </body>
 </html>
