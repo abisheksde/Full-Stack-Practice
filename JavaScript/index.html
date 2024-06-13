@@ -556,7 +556,7 @@
     }
 
     greet(greetings); // We call the greet() function & passed greetings() function as an Argument to greet() function
-
+    //here, greetings is Callback function, greet is not a callback function
     greet(greetingMorning); // We call the greet() function & passed greetingMorning() function as an Argument to greet() function
      //You can give function defenition as a Argument, instead of giving Function name as an Argument
 
@@ -565,12 +565,18 @@
 
      nameArray = ["Thankaswamy","Leelabai", "Abishek", "Abinesh", "Abinisha"];
 
-     nameArray.forEach(print); // It will take All of the Array Element one by one & Execute the Respective callback Function
+     nameArray.forEach(print); // It will take All of the Array Element one by one & pass the element as Argument to Respective callback Function to Execute
      // here, ForEach() is a Method/Function & You need to give any Function as Argument
      // You can take all elements of an Array one by one using ForEach(). But you need to give a function which has a code to take a element, as an Argument of ForEach()
 
      function print(val){
-        console.log(val);
+        console.log(val); //Not only value, You can receive index of the Array & Full Array as parameter
+     }
+
+     nameArray.forEach(printing);
+     function printing(val, index, arr) { // here, val is a single element of the Array, index is single index of the Array, arr is Full Array
+        console.log(arr[index]); // arr[index] = val;
+        console.log(val); // val = arr[index];
      }
 
     </script>
