@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="title"></h1>
+
+    <script>
+        // For More Details
+        //https://www.w3schools.com/js/default.asp
+        //https://www.geeksforgeeks.org/javascript/
+        //https://www.javatpoint.com/javascript-tutorial
+        //https://www.tutorialspoint.com/javascript/index.htm
+
+        /////////
+
+        let bill = 1000;
+        console.log("Your Bill Amount is Rs."+bill);
+
+        bill = "No Bill"; //Dynamically Typed Language
+        console.log("Your Bill Amount is Rs."+bill);
+
+        let a = 5;
+
+        a **= 2; // a square is stored in variable a ( a = a**2)
+
+        a = 5/0; // a = Infinity
+
+        a = 0/0; // a = NaN - Not a Number
+
+        let b; // b = undefined / null
+
+        typeof 5 // number
+
+        typeof 'abc' // string
+
+        a = "5" - 1; // a = 4 (Automatic Type conversion - It is Not applicable for Addition (Bcz, a = "5"+1 // here, a = "51"))
+
+        a = "six" + 1; // a = NaN - Not a Number
+
+        ///Comparision (for == & ===)
+
+        let num = '5'; // Type is String
+
+        let n;
+
+        n = num == 5; // n = True (Bcz, Automatic Type Conversion {Ignore the Type & Compare the Values})
+
+        n = num === 5; // n = False (Bcz, It Compares Both Type & Values})
+
+        //OR
+
+        n = num == '5'; // n = True
+
+        n = num === '5'; // n = True
+        
+        ///Comparision (for != & !==)
+
+        let num1 = '5'; // Type is String
+
+        let n1;
+
+        n1 = num1 != 5; // n = False (Bcz, Automatic Type Conversion {Ignore the Type & Compare the Values})
+
+        n1 = num1 !== 5; // n = True (Bcz, It Compares Both Type & Values})
+
+        //OR
+
+        n1 = num1 == '5'; // n = True
+
+        n1 = num1 === '5'; // n = True
+
+    /*    
+
+        ////// Prompt
+
+        let name = prompt("Enter your Name : ");
+        console.log("Hi "+ name);
+        // This Prompt will show a Alert box in browser. In that alert box, one Text Field will presents
+        // If you Type anything in that Text Field, That Typed value will be stored in variable name as a String (here)
+        // If you Type any Type of value in prompt (Even a Number), It will considered as a String
+        // But, that String will automatically convert into Number (Automatic Type conversion - It is Not applicable for Addition (Bcz, a = "5"+1 // here, a = "51"))
+        // Even though, to avoid unexpected errors, We need to manually convert the String into Number.
+
+        let tickets = prompt("How many Tickets you Want ? : ");
+        console.log("You should Pay : Rs. "+ Number(tickets)*60);
+
+        // Number (tickets) - The variable tickets, which is hold the count of tickets in Type String will converted into Number
+
+    */
+
+    //Document Object Mode - Accessing & Controlling HTML from JavaScript
+
+    let heading = document.getElementById("title"); // It will take the document (Element), which have id = "title" & store the document into variable heading
+    //Output is : <h1 id="title"></h1> /// heading = <h1 id="title"></h1>
+
+
+    //Display any value in browser, using this Element
+    heading.innerHTML = "Welcome to United India"; // This Text will add to that Element, which have id="title";
+
+
+    /// Math Functions 
+    // For More details --> https://www.w3schools.com/js/js_math.asp
+
+    Math.round(5.4); // 5
+    Math.round(5.9); // 6
+    Math.floor(5.8); // 5 - prevous whole number
+    Math.ceil(5.8); // 6 - next whole number
+    Math.sqrt(55); // 7.416198487095663 - Find Square root of 55
+    Math.abs(-9); // 9 - Absolute Positive Number
+    Math.abs(9); // 9 - Absolute Positive Number
+    Math.abs(5.5); // 5.5 - Absolute Positive Number
+    Math.pow(8,5); //32768 - 8 Pow 5 --> 8*8*8*8*8 = 32768
+    Math.min(5,4,3,2,8,9,35); // 2 --> Find Minimum value
+    Math.max(5,4,3,2,8,9,35); // 35 --> Find Maximum value
+
+    /// Math.Random()
+    //Math.random() returns a random number between 0 (inclusive),  and 1 (exclusive) randomly.
+
+    // For more details --> https://www.w3schools.com/js/js_random.asp
+
+    Math.random(); // Will generate any random number between 0 & 1
+
+    Math.random()*6; // Will return any random number between 0 & 6 (means 0 to 5.9)
+
+    Math.floor(Math.random*6); // Will return any whole random Number between 0 & 6 (means, 0 to 5)
+    // Bcz, floor will take the previous whole number of the random number
+
+    Math.ceil(Math.random*6); // Will return any whole random Number between 1 & 6 (means, 1 to 6)
+    // Bcz, ceil will take the next whole number of the random number
+
+    /// Math Const properties
+
+    Math.PI; // 3.141592653589793
+    Math.E; // 2.718281828459045 
+    // these are not a function of Math, these are const properties(const variables) of Math
+
+
+    ////STRINGS\\\\
+
+    //For more details:
+    //https://www.w3schools.com/js/js_strings.asp
+    //https://www.w3schools.com/js/js_string_methods.asp
+    //https://www.w3schools.com/js/js_string_search.asp
+    //https://www.w3schools.com/js/js_string_templates.asp
+
+    let str1 = "Hello Mr. Abishek. ";
+    let str2 = "Welcome back to India, Thank you India";
+
+    str = str1+str2; // str = "Hello Mr. Abishek. Welcome back to India" // + will join the both strings
+
+    str1.concat(str2); // "Hello Mr. Abishek. Welcome back to India" // concat() will joins str1 with str2
+
+    str1.concat("How are you? ",str2); // "Hello Mr. Abishek. How are you? Welcome back to India" // concat() will joins str1 with "How are you? " and str2
+
+    str1.slice(0,5); // It will take "Hello" --> means, from index 0 (inclusive) to 5 (exclusive)
+
+    str1.slice(6); // It will take "Mr. Abishek. " --> means, from index 6 to till the End
+
+    str1.slice(-13) // It will take "Mr. Abishek. " --> means, count from the End to till 13th letter (Exclusive)
+
+    // substring() is Same like slice()
+
+    str1.substr(2, 14); // "llo Mr. Abishe" It will take string from index 2 and take the next 14 letters
+
+    str1.substr(-9, 7); // "Abishek" It will start to count backwards till 9 (Exlusive), then count forward and take next 7 letters.
+
+    str2.replace("India", "New York"); // It will replace the word "India" to "New York", (Case sensitive)
+    // If you have more than 2 "India", It will take 1st "India"
+
+    str2.replaceAll("India", "London"); // It will replace the word "India" to "London", (Case sensitive)
+    // If you have more than 2 "India", It will replace "India"
+
+    //str1.length(); // To find the length of the String
+
+    str1.toUpperCase(); // It will convert all letters to Uppercase
+
+    str1.toLowerCase(); // It will convert all letters to Lowercase
+
+    str1.trim(); // It will remove all extra spaces
+
+    str1.trimStart(); // It will remove all extra spaces in Starting
+
+    str1.trimEnd(); // It will remove all extra spaces in Ending
+
+    let strng = "I Love ";
+
+    //strng.length(); //7
+
+    strng.padEnd(10, "U"); // It defines, lenght of the strng is 7, padEnd() tells, add "U" to strng till the length of strng become 10
+
+    strng.padStart(10, "N"); // Check what will happens?
+
+    str1[1]; // e
+
+    str1.charAt(1); // e
+
+    str1.charCodeAt(1); // Unicode value of e
+
+    str1.indexOf("e"); // return the index of first "e";
+
+    str1.lastIndexOf("e"); // returns the index of last "e";
+
+    str1.search("Abishek"); // returns the index of first letter "A", only if present the string
+
+    str1.includes("Abishek"); // If the word "Abishek" is present means, it will return true. otherwise return false
+
+    str1.startsWith("H"); // If the str1 String start with "H" means, It will return true
+
+
+    ////String Interpolation////
+
+    let firstName = "Anju";
+
+    let secondName = "Abishek";
+
+    let city = "Saudi Arabia";
+
+    console.log(`${firstName} ${secondName} lives in ${city}`);
+
+    //// Multiline String////
+
+    let message = `Happy
+    Birthday
+    to
+    You`;
+
+    console.log(message);
+
+    /// Single & double quotes in String
+
+    let msg = "My Cat's Name is Toto";
+    let msg1 = 'My Cat"s Name is Toto';
+    let msg2 = `My Cat's Name is Toto`;
+    let msg3 = "My Cat`s Name is Toto";
+    let msg4 = 'My Cat`s Name is Toto';
+
+    //let msg5 = 'My Cat's name is Toto'; // Error
+    //let msg5 = "My Cat's name is "Toto""; // Error
+
+    //// ARRAY \\\\
+
+    let cities = ["Bangalore", "Hyderabad", "Chennai", "Coimbatore","Kolkata", "Mumbai"]; // String Array
+
+    let marks = [100, 98, 80, 90, 100]; // Numbers Array
+
+    console.log(cities.length); // To find Lenght of an Array
+
+    console.log(cities); // It will print full Array
+
+    console.log(cities[2]); // It will print an Array element, which is placed in index 2 of the Array
+
+    console.log(cities[6]); // cities Array has elements till 5th index, But if we try to take 6th element, which is not present in the Array. O/P will be undefined
+
+    console.log(cities[cities.length-1]); // It will print last element of the Array
+
+    let arr = [5, 6, 7, 'a', "abc"]; // We can define multiple type of values in single Array
+
+    let arr1 = [5, 6, 7, [1, 2, 4]]; // We can define an Array inside an Array, as a element of Main Array
+    // here, [1,2,4] is an element of arr1
+
+    console.log(arr1[3]); // It will print the 3rd index element, which is an Array present inside the arr1
+
+    console.log(arr1[3][2]); // It will take the element of 3rd index, then take the element of 2nd index of that 3rd Index's element
+
+    //2D Array\\
+    let matrix = [[1,2,3],[4,5,6],[7,8,9]]; // This Matrix Array has 3 elements, all 3 elements are Arrays, each elements have 3 elements, which has type Number
+
+    let matrix1 = [[1,2,3],[1,[123],3],[1,2,3]]; // In this Matrix, Element of 1st Index have an Array inside it, which is present 1st index of the 1st index's element of the Matrix
+
+    console.log(matrix); // It will Print All Element of Matrix Array
+
+    console.log(matrix[1]); // It will Print an Element of 1st Index of Matrix Array
+
+    console.log(matrix[1][1]); // It will Print an Particular Element of an Matrix
+
+    arr.push(12); //This method will add the element at End of an Array and returns the length of new Array
+
+    arr.pop(); // This function will remove Last element of an Array & returns the deleted Element
+
+    arr.shift(); // it will remove the first element of and Array & returns the removed elemet
+
+    arr.unshift(1); // It will add the element at Beginning of an Array and returns the length of new Array
+
+    delete arr[3]; // It will delete the particular element of any Array & make the space empty
+
+    cities.splice(3, 1); // It defines, Delete the element from 3rd Index, Total element need to be deleted is 1
+
+    cities.splice(4,1, "New Delhi"); // It defines, Delete only one element from 3rd Index & add the New element ("New Delhi") in same Index
+    //You van add multiple Elements - Try it
+
+    cities.splice(3, 0, "Mumbai"); //It defines, Insert a New element ("New Delhi") in 3rd Index, without deleting of any element.
+    //Note : Splice() method returns the deleted elements as an Array
+
+    console.log(cities);
+
+    //slice(Starting Index, Ending Index)
+    // Ending Index is Excluded
+
+    // Slice() method, will return purticular elements of Array
+
+    cities.slice(2); // It will return the Array elements from the index of 2 to End of that Array
+
+    cities.slice(2, 5); // It will return the Array elements from the index of 2 to 5 of that Array (5th index is excluded)
+
+    cities.reverse(); // To reverse an Array
+
+    //join() - Convert Array to String
+
+    let array = ['a','b','c','d','f'];
+
+    let str5 = array.join(); // Array to String
+
+    //split() - convert String to Array
+
+    str5.split(','); // Convert String to Array on the basis of camma (,)
+
+    ///////
+
+    let firstarr = [1,2,3];
+    let secondarr = [4,5,6];
+
+    let joinedarr = [firstarr,secondarr]; // joinedarr = [[1,2,3],[4,5,6]];
+
+    //concat() - To merge Two Arrays into Single Array
+
+    let joinedArr = firstarr.concat(secondarr); // joinedArr = [1,2,3,4,5,6];
+
+    //spread Operator
+
+    let joined = [...firstarr, ...secondarr]; // joined = [1,2,3,4,5,6];
+
+    //////OBJECTS\\\\\\
+
+    let item1 = {
+        name: "Mobile",
+        price: 25000,
+        quantity: 1
+    }
+
+    console.log(item1); 
+
+    //Another Way
+
+    let item2 = new Object();
+
+    item2.name = "Power bank";
+    item2.price = 10000;
+    item2.quantity = 1;
+
+    console.log(item2);
+
+    ////Accessing the Objects - Dot Notation
+
+    item1.returnable = true; // Adding Extra Properties into Existing Object
+
+    console.log(item1);
+    
+    //
+
+    console.log(item1.price); // Accessing a Property
+
+    item1.price = 30000; // Changing the Existing value of a Property
+
+    //// Another Way to Accessing Objects - Square Bracket Notation
+
+    console.log(item1['price']);  // Accessing a Property
+
+    item1['returnable'] = false; // Changing the Existing value of a Property
+
+    //// Dot Notation is preferable. But, In one situation Square bracket Notation is very Usefull
+
+    // The Situation is : When you need to give key as a variable, Square bracket Notation is very Usefull
+
+    let key = 'price'; 
+
+    item1[key] = 40000; // It will Work
+
+    item1.key = 45000; // It will Not Work
+
+    console.log(item1);
+
+    /// We can give an Object inside an object as a Key:Value pair
+    /// We can give an Array inside an Object as a key:value pair
+
+    let item3 = {
+        name: "Mobile",
+        price: 25000,
+        quantity: 1,
+
+        // This is an Object, which is present in an Object item3
+        dimension: {
+            length: 10,
+            height: 20,
+            width: 15,
+        },
+
+        // This is an Array, which is present in an Object item3
+        catagories: ['Electronics', 'Smartphones'],
+
+    }
+
+    console.log(item3.dimension);
+    console.log(item3.dimension.height);
+    console.log(item3.catagories);
+    console.log(item3.catagories[0]);
+
+
+    /// We can give an Function inside an Object as a key:value pair
+
+    let item4 = {
+        name: "Mobile",
+        price: 25000,
+        quantity: 1,
+
+        // This is an Object, which is present in an Object item4
+        dimension: {
+            length: 10,
+            height: 20,
+            width: 15,
+        },
+
+        // This is an Array, which is present in an Object item4
+        catagories: ['Electronics', 'Smartphones'],
+
+        // This is an Function, which is present in an Object item4
+        // here, buy() is Function Name
+        buy: function(){
+            console.log("Item Added  to Cart");
+        }
+
+    }
+
+    item4.buy(); // Accessing/Invoking the Function which is present inside the Object
+    //If you write an Function, inside a Object means, It is known as Method
+    //If you write an Function, outside a Object means, It is known as Function itself
+
+    ///Note :
+    isNaN('a'); // It is an inbuild Function to Find given value is Number or Not
+    // If the given  value is Number, It will return False. Otherwise it will return True
+
+    ///For of Loop // Like ForEach Loop - Access every Data from an Array
+
+    let fruits = ["Apple", "Orange", "Banana", "Grapes", "Mango"];
+
+    for(let fruit of fruits){
+        console.log(fruit);
+    }
+
+    ///For in Loop // Like ForEach Loop - Access every Data from an Object
+
+    let mobile = {
+        company : "Samsung",
+        model : "Galaxy 125",
+        price : 12000,
+    }
+
+    for(let mobiledetails in mobile){
+        console.log(mobiledetails + " : "+ mobile[mobiledetails]);
+
+        //mobiledetails = 1st : company, 2nd : model, 3rd : price
+        //mobile[mobiledetails] = 1st : "Samsung", 2nd : "Galaxy 125", 3rd : 12000
+    }
+
+
+    </script>
+    <a href="/JavaScript/lenghtconvertor.html" target="_blank" rel="noopener noreferrer">Go to Lenght Convertor</a> <br>
+    <a href="/JavaScript/tempconvertor.html" target="_blank" rel="noopener noreferrer">Go To Temperature Convertor</a> <br>
+    <a href="/JavaScript/randomLetter.html" target="_blank" rel="noopener noreferrer">Go to Random Letter Generator</a>
+    <a href="/JavaScript/citydetails.html" target="_blank" rel="noopener noreferrer">Go to City Stats</a>
+</body>
+</html>

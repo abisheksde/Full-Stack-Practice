@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        
+        <div>
+            <input type="text" name="centimeter" id="centimeter" placeholder="Enter the lenght in centimeter">
+        </div>
+        <div>
+            <button type="submit" onclick="convertor()">Enter</button>
+        </div>
+        <div>
+            <p id="result"></p>
+        </div>
+        
+    </div>
+
+    <script>
+        function convertor(){
+            const centimeter= Number(document.getElementById("centimeter").value); // This is how, we can take a user input value, from the TextField
+            // document.getElementById("centimeter") will take the element, which have id="centimeter", & .value will take the value of that element
+            document.getElementById("result").innerHTML = centimeter/2.54 + " Inches";
+            //document.getElementById("result").innerHTML = (centimeter/2.54).toFixed(2) + " Inches"; // .toFixed(2) will take first 2 digit of Decimal values only
+        }
+    </script>
+</body>
+</html>

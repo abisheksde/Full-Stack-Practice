@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Convertor</title>
+</head>
+<body>
+    <div>
+        <div>
+            <input type="number" name="celsius" id="celsius">
+        </div>
+        <div>
+            <button type="submit" onclick="convert()">Convert</button>
+        </div>
+        <div>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script>
+        function convert(){
+            let celsius = Number(document.getElementById("celsius").value);
+
+            let fahrenheit = (celsius*1.8)+32;
+
+            document.getElementById("result").innerHTML = fahrenheit;
+        }
+    </script>
+
+</body>
+</html>

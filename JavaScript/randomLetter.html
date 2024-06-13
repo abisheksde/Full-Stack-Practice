@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randome letter</title>
+</head>
+<body>
+
+    <div>
+        <div>
+            <button type="submit" onclick="randomLetter()">Generate</button>
+        </div>
+        <div>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script>
+        function randomLetter(){
+            let name = "Abishek Thankaswamy";
+            let num = Math.ceil(Math.random()*18);
+
+            document.getElementById("result").innerHTML = name[num];
+            console.log(name[num])
+        }
+    </script>
+</body>
+</html>
