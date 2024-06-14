@@ -725,6 +725,44 @@
      
      console.log(count);
 
+     // Function returning a Function
+
+     //Outer Function
+     function outer(name) {
+        let outerVar = "Bread";
+
+        //Inner Function
+        function inner(){
+            let innerVar = "Butter";
+
+            console.log("Inner Variable ", innerVar);
+            console.log("Outer Variable ", outerVar);
+            console.log("Hello ", name);
+        }
+        //inner();
+        //We cannot call inner() function from outside of this outer() function
+        //Because, inner() function is present inside the outer() function, So no scope in outside of the outer() function
+        //
+
+        return inner; // returning the inner() function
+     }
+
+     let call1 = outer(); //We calling the outer() function. So, outer() function will return a value, we need to receive the Returned value of outer() function (inner() function) in a variable (here, call1 variable)
+     // when we are calling outer() function like above line, It will execute the whole outer() function and return the value, If we didn't store the returned value in any variable means, we can't access the returned value of outer() function
+     // Here, we calling the outer() function by calling outer(). It will execute the whole outer() function, But that outer() function will returns inner() function only. We stored the inner() function in variable "call1"
+     call1(); // Calling the returned value of Outer() function (which is inner() function) using variable call1(). - we give () after variable name, bcz the receive value is Function
+
+     ///Closure///
+
+     let call2 = outer('Abishek'); // We calling the outer() function, which will return inner() function & we store the return value of outer() function (which is inner() function) in variable call2
+     //Now (after completion of executing outer() function), the scope of Outer() Function is not alive - Means, The memory allocated for outer() function is deallocated now (memory will deallocate after completing the execution of the particular function)
+     //Now, we have inner() function only. because, before the deallocation of outer() function, we return the inner() function & stored it in call2 variable
+     // Even though, We can still access the argument value which is passed through outer() function, even after the deallocation of outer() function.
+     call2(); //here, We technically Calling the inner() function after the deallocation of outer() function, but before we accessed the parameter of outer() function inside the inner() function. So only parameter of outer() function is still accessible by inner() function, even after the deallocation of outer() function
+     // This is called closure & It is applicable only for JavaScript. Not for other languages
+
+
+
     </script>
     <a href="/JavaScript/lenghtconvertor.html" target="_blank" rel="noopener noreferrer">Go to Lenght Convertor</a> <br>
     <a href="/JavaScript/tempconvertor.html" target="_blank" rel="noopener noreferrer">Go To Temperature Convertor</a> <br>
