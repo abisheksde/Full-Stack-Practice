@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Array</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Array Elements</h2>
+        <input type="text" id="arrayInput" placeholder="Enter comma to separate values">
+        <br>
+        <button onclick="displayArray()">Display Array</button>
+        <h3>Array Elements:</h3>
+        <div id="arrayOutput"></div>
+    </div>
+
+    <script>
+        function displayArray() {
+            let input = document.getElementById('arrayInput').value;
+            let array = input.split(',');
+
+            array = array.map(item => item.trim());
+            
+            let outputDiv = document.getElementById('arrayOutput');
+            outputDiv.innerHTML = ''; 
+            array.forEach(element => {
+                let p = document.createElement('p');
+                p.textContent = element;
+                outputDiv.appendChild(p);
+            });
+        }
+    </script>
+</body>
+</html>

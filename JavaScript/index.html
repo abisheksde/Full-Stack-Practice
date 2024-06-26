@@ -764,6 +764,97 @@
      // This is called closure & It is applicable only for JavaScript. Not for other languages
 
 
+     ////Set Object\\\\
+
+     //You can store unique values.
+     //It removes repeated values & return as new object
+
+     let arrayList = [1,1,2,3,4,5,5,5,6,7,8,9,10,];
+
+     let mySet1 = new Set(arrayList);
+
+     console.log(mySet1);
+
+     //OR
+
+     let mySet2 = new Set();
+
+     mySet2.add(1);
+     mySet2.add(1);
+     mySet2.add(2);
+     mySet2.add(3);
+     mySet2.add(4);
+     mySet2.add(5);
+     mySet2.add(5);
+     mySet2.add('ask');
+     mySet2.add('ask'); //repeated value - Set will not consider it
+     mySet2.add({'a':1, 'b':2})
+     mySet2.add({'a':1, 'b':2}) // Even though, this object is a repeated value, the Set will consider it & add to the Set()
+     //Bcz, both objects are not same objects, both are different Object. which means, both objects are stored in different location of heap memory
+     // Bcz, the object is reference data type, Only For reference datatype (Not for Premitive data type), the Set() will consider same object as a repeated object
+
+     let obj = {'a':5, 'b':10}
+
+     mySet2.add(obj);
+     mySet2.add(obj); //repeated value - Set will not consider it
+
+     console.log(Array.from(mySet2)); // To Convert as Array
+     console.log(mySet2);
+
+     //// Map Object \\\\
+     //Map Objects are collection of Key:value pairs.
+     //A key in the Map may only occur once (means, Key should be unique)
+     //Key or value can be Object
+
+     let map1 = new Map();
+
+     map1.set('a',1);
+     map1.set('b',2);
+
+     map1.set('a',3); // It will not add the value to key 'a'. But, it will override the value of previous key 'a'
+     // Because, Key should be unique in the Map object
+
+     map1.delete('a'); // it will delete 'a'
+
+     for(let i of  map1){
+        console.log(i);
+     }
+
+     for(let [k,v] of  map1){ //k -> key & v -> value
+        console.log(k);
+     }
+
+     for(let k of map1.keys()){
+        console.log(k);
+     }
+
+     map1.forEach((v,k)=>{ // First value, then Key
+        console.log('key', k, 'value',v)
+     })
+
+     // You can Insert 2d array to Map object, can't insert 1d array
+
+     let kvArray = [['c',5],['d',10]];
+
+     let map2 = new Map(kvArray);
+
+     console.log(map2);
+
+
+     console.log(...map2) // Spread Operator changes the map2 again as 2D array
+
+     
+
+
+
+
+
+
+
+
+
+
+
 
     </script>
     <a href="/JavaScript/lenghtconvertor.html" target="_blank" rel="noopener noreferrer">Go to Lenght Convertor</a> <br>
