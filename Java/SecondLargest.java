@@ -13,9 +13,7 @@ public class SecondLargest {
         }
         
         Arrays.sort(arr);
-
         
-
         System.out.println("The Second Largest Number is : "+ arr[arr.length-2]);
     }
 }
