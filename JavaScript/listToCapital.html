@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+</head>
+<body>
+    <div>
+        <ul id="country">
+            <li>india</li>
+            <li>japan</li>
+            <li>usa</li>
+        </ul>
+        <button type="submit" onclick="changeToUppercase()">Click</button>
+    </div>
+    <script>
+        function changeToUppercase(){
+            let list = document.querySelectorAll('#country li');
+
+            list.forEach(function(li){
+                li.textContent = li.textContent.toUpperCase();
+            })
+        }
+    </script>
+</body>
+</html>
