@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlight</title>
+    <style>
+        .highlight{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul id="country">
+            <li>India</li>
+            <li>Japan</li>
+            <li>USA</li>
+            <li>CHINA</li>
+            <li>GEORGIA</li>
+        </ul>
+    </div>
+    <script>
+        let allList = document.querySelectorAll('#country li')
+
+        allList.forEach(li => {
+            
+            li.addEventListener('click',function(){
+                allList.forEach(li => li.classList.remove('highlight'));
+                //li.classList.toggle('highlight')
+                li.className = "highlight";
+                console.log(li.textContent)
+            })
+        })
+
+    </script>
+
+</body>
+</html>

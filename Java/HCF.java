@@ -5,7 +5,7 @@ public class HCF {
 
         while(a != 0){
             int temp = a;
-            a = b%a;  
+            a = b%a;
             b = temp;
         }
 
