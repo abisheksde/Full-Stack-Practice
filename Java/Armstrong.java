@@ -1,58 +1,32 @@
 public class Armstrong {
     public static void main(String[] args) {
-        int count = 0;
-        
-        int n = 153;
-        int last;
-        int number = n;
-        int input = n;
-        
-        int lastDigit;
-
-        //To Find Count of Digit
-        while (n != 0) { 
-            last = n%10;
-            n = n/10;
-            count++;  
-        }
-
-        //Array initialized based on Count
-        int[] arr = new int[count];
-        int i =0;
-
-        // Store Every Digit of number, in  Array
-        while (number != 0) { 
-            lastDigit = number%10;
-            number = number/10;
-            arr[i] = lastDigit;
-            i++;
-        }
-
-        int l = 0;
+        int originalNumber = 370;
+        int num = originalNumber;
+        int count = countOfDigit(num);
         int sum = 0;
 
-
-        //Find Power & Sum of All Digits
-        for (int j = 0; j < arr.length; j++) {
-            int temp = arr[j];
-            while (l<count-1) { 
-                arr[j] = arr[j]*temp;
-                l++;
-            }
-            l=0;
-
-            sum = sum + arr[j];
-
-            
-            // System.out.println(arr[j]);
-            // System.out.println(sum);
-            
+        while (num>0) { 
+            int temp = num%10;
+            temp = (int)Math.pow(temp, count); //OR - Manually Find Power of a number
+            sum = sum + temp;
+            num = num/10;
         }
-        if(input== sum){
-            System.out.println("It is an Armstrong number");
+
+        if(originalNumber==sum){
+            System.out.println("The Number is Armstrong");
         } else {
-            System.out.println("It is Not an Armstrong Number");
+            System.out.println("The Number is Not an Armstrong");
         }
-        
+
+
+    }
+
+    static int countOfDigit(int num){
+        int count = 0;
+        while (num>0) { 
+            num = num/10;
+            count++;
+        }
+        return count;
     }
 }
