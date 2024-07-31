@@ -17,8 +17,4 @@ public class Palindrome {
             System.out.println(str + " is not a Palindrome.");
           }
         }
-
-    
-
-
 }   

@@ -3,8 +3,8 @@ public class GCD {
 
         //https://www.youtube.com/watch?v=ZJkuuUE1pgQ
         
-        int num1 = 11;
-        int num2 = 20;
+        int num1 = 40;
+        int num2 = 87;
 
         int num = num1 > num2 ? num1 : num2;
 

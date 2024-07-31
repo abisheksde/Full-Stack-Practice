@@ -1,14 +1,12 @@
 public class Factorial {
     public static void main(String[] args) {
-        
-        int fact = findFact(5);
+        int num = 5;
+        System.out.println(findFact(num));
 
-        System.out.println("Factorial is : "+ fact);
     }
 
-    public static int findFact(int num){
-
-        if(num==0){
+    static int findFact(int num){
+        if(num==1){
             return 1;
         }
 
