@@ -59,8 +59,6 @@ This yields 4 ways to select a diverse deputation: (m1,w1,w2), (m1,m2,w2), (m2,w
 
 * */
 
-import java.io.*;
-
 
 
 class Result1 {
@@ -75,27 +73,58 @@ class Result1 {
      */
 
     public static int diverseDeputation(int m, int w) {
-        return 0;
+/* 
+        long allMembers = nCr((m+w), 3); // Possibilities of selecting 3 (r) out of 8(n)
+
+        long allMan = nCr(m, 3);
+
+        long allWomen = nCr(w, 3);
+
+        long diverseDeputation = allMembers - allMan - allWomen;
+
+*/
+        long diverseDeputation = 0;
+        for (int men = 1; men <= 2; men++) {
+            int women = 3 - men;
+
+            if(women == 2 || women == 1){
+                diverseDeputation = diverseDeputation + nCr(m, men) * nCr(w, women);
+            }
+            
+        }
+
+        return (int)diverseDeputation;
+    }
+
+    static long nCr(int n, int r){ // Possibilities of selecting (r) out of (n)
+
+        //The binomial coefficient is defined as:  𝑛! / 𝑟!*(𝑛 − 𝑟)!
+        //However, directly calculating factorials can lead to very large numbers, which might cause overflow. 
+        //Instead, we can compute the binomial coefficient iteratively. --> Formula is : nx(n−1)×(n−2)×…×(n−r+1)​/1×2×3×…×r.
+
+        if(r>n){
+            return 0;
+        }
+
+        long res = 1;
+
+        for (int i = 0; i < r; i++) {
+            res = res * (n - i) / (i + 1);
+            System.out.println("RES : "+ res);
+
+        }
+
+        return res;
+
     }
 
 
 }
 
 public class HackerRank1 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+    public static void main(String[] args)  {
+        int result = Result1.diverseDeputation(4, 4);
 
-        int m = Integer.parseInt(bufferedReader.readLine().trim());
-
-        int w = Integer.parseInt(bufferedReader.readLine().trim());
-
-        int result = Result1.diverseDeputation(m, w);
-
-        bufferedWriter.write(String.valueOf(result));
-        bufferedWriter.newLine();
-
-        bufferedReader.close();
-        bufferedWriter.close();
+        System.out.println(result);
     }
 }
