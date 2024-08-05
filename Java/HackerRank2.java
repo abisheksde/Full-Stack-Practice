@@ -157,6 +157,9 @@ class Result2 {
             boxUnitPairs.add(new long[] {unitsPerBox.get(i), boxes.get(i)});
         }
 
+        //boxUnitPairs.sort((a, b) -> b[0].compareTo(a[0]));
+        boxUnitPairs.sort((a, b) -> Long.compare(b[0], a[0]));
+
         long unitCount = 0;
         int boxCount = 0;
 
@@ -165,7 +168,7 @@ class Result2 {
 
             for (int j = 0; j < pair[1]; j++) {
                 if(boxCount<truckSize) {
-                    unitCount = unitCount + pair[j];
+                    unitCount = unitCount + pair[0];
                     boxCount++;
                 }
             }
@@ -180,18 +183,18 @@ class Result2 {
 public class HackerRank2 {
     public static void main(String[] args) throws IOException {
         List<Integer> boxes = new ArrayList<>();
-        boxes.add(1);
         boxes.add(2);
+        boxes.add(1);
         boxes.add(3);
         List<Long> boxesList = new ArrayList<>();
 
         List<Integer> unitsPerBox = new ArrayList<>();
         unitsPerBox.add(3);
         unitsPerBox.add(2);
-        unitsPerBox.add(1);
+        unitsPerBox.add(9);
         List<Long> unitsPerBoxList = new ArrayList<>();
 
-        long truckSize = 3;
+        long truckSize = 2;
 
         //Converting List<Integer> to List<Long>
         for (Integer i : boxes) {
