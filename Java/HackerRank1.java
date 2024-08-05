@@ -110,7 +110,7 @@ class Result1 {
 
         for (int i = 0; i < r; i++) {
             res = res * (n - i) / (i + 1);
-            System.out.println("RES : "+ res);
+            //System.out.println("RES : "+ res);
 
         }
 

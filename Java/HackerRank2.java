@@ -136,8 +136,6 @@ Sample Output = 27
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.*;
-import static java.util.stream.Collectors.toList;
 
 
 
@@ -154,7 +152,26 @@ class Result2 {
      */
 
     public static long getMaxUnits(List<Long> boxes, List<Long> unitsPerBox, long truckSize) {
-        return 0;
+        List<long[]> boxUnitPairs = new ArrayList<>();
+        for (int i = 0; i < boxes.size(); i++) {
+            boxUnitPairs.add(new long[] {unitsPerBox.get(i), boxes.get(i)});
+        }
+
+        long unitCount = 0;
+        int boxCount = 0;
+
+        for (int i = 0; i < boxes.size(); i++) {
+            long[] pair = boxUnitPairs.get(i);
+
+            for (int j = 0; j < pair[1]; j++) {
+                if(boxCount<truckSize) {
+                    unitCount = unitCount + pair[j];
+                    boxCount++;
+                }
+            }
+        }
+
+        return unitCount;
 
     }
 
@@ -162,43 +179,32 @@ class Result2 {
 
 public class HackerRank2 {
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        List<Integer> boxes = new ArrayList<>();
+        boxes.add(1);
+        boxes.add(2);
+        boxes.add(3);
+        List<Long> boxesList = new ArrayList<>();
 
-        int boxesCount = Integer.parseInt(bufferedReader.readLine().trim());
+        List<Integer> unitsPerBox = new ArrayList<>();
+        unitsPerBox.add(3);
+        unitsPerBox.add(2);
+        unitsPerBox.add(1);
+        List<Long> unitsPerBoxList = new ArrayList<>();
 
-        List<Long> boxes = IntStream.range(0, boxesCount).mapToObj(i -> {
-                    try {
-                        return bufferedReader.readLine().replaceAll("\\s+$", "");
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                })
-                .map(String::trim)
-                .map(Long::parseLong)
-                .collect(toList());
+        long truckSize = 3;
 
-        int unitsPerBoxCount = Integer.parseInt(bufferedReader.readLine().trim());
+        //Converting List<Integer> to List<Long>
+        for (Integer i : boxes) {
+            boxesList.add(i.longValue());
+        }
+        
+        //Converting List<Integer> to List<Long>
+        for (Integer i : unitsPerBox) {
+            unitsPerBoxList.add(i.longValue());
+        }
 
-        List<Long> unitsPerBox = IntStream.range(0, unitsPerBoxCount).mapToObj(i -> {
-                    try {
-                        return bufferedReader.readLine().replaceAll("\\s+$", "");
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                })
-                .map(String::trim)
-                .map(Long::parseLong)
-                .collect(toList());
+        long result = Result2.getMaxUnits(boxesList, unitsPerBoxList, truckSize);
 
-        long truckSize = Long.parseLong(bufferedReader.readLine().trim());
-
-        long result = Result2.getMaxUnits(boxes, unitsPerBox, truckSize);
-
-        bufferedWriter.write(String.valueOf(result));
-        bufferedWriter.newLine();
-
-        bufferedReader.close();
-        bufferedWriter.close();
+        System.out.println("Result is : "+ result);
     }
 }
