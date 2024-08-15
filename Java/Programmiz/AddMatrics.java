@@ -1,3 +1,4 @@
+
 public class AddMatrics {
     public static void main(String[] args) {
         int[][] matrix1 = {{1,2,3},{4,5,6},{7,8,9}};
@@ -12,7 +13,7 @@ public class AddMatrics {
             System.out.println("\n");
         }
 
-        System.out.println(addMatrix(matrix1, matrix2));
+        //System.out.println(addMatrix(matrix1, matrix2));
     }
 
     static int[][] addMatrix(int[][] matrix1, int[][] matrix2){
