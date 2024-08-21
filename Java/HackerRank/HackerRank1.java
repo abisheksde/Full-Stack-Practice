@@ -104,6 +104,7 @@ class Result1 {
         // Assume, n = 4, r = 2;
         // 4x3 / 1x2 (OR) 4x3 / 2x1
         // 4/1 x 3/2 (OR) 4/2 x 3/1
+        // 4 x 1.5 (OR) 2 x 3 = 6//
         // For More Details --> https://youtu.be/bR7mQgwQ_o8
         if(r>n){
             return 0;
