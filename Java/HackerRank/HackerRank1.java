@@ -114,6 +114,11 @@ class Result1 {
 
         for (int i = 0; i < r; i++) {
             res = res * (n - i) / (i + 1);
+            // First Iteration --> 1 x 4 / 1 = 4 (res = 4)
+            // Second Iteration --> 4 x 3 / 2 = 6 (res = 6)
+            // Third Iteration --> 6 x 2 / 3 = 4 (res = 4)
+            // Last, It will return 4
+
             //res = res * (n - i) / (r - i);
             //System.out.println("RES : "+ res);
 
